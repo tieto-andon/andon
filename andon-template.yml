@@ -1,0 +1,178 @@
+general:
+  whitelist: true
+  pipeline_base_name: Application_X
+  dependency:
+   - Pipeline X [Stage X]
+   - Pipeline Y [Stage Y]
+
+
+pre_stage:
+  go_cd_agent_props:
+    - java:8
+    - maven
+  custom_cmd:
+    - <any command needed in pre stage which can be run in defined agent>
+
+
+compile:
+  go_cd_agent_props:
+    - java:8
+    - maven
+  sonarqube: true
+  stages: # list of stages in order
+    - stage: Compile # unique name, no spaces
+      jobs:
+        - job: Maven_build # unique name, no spaces
+          tasks: # ordered list of tasks to execute in job Maven build
+            - task: mvn clean -Djava.security.egd=file:/dev/./urandom install
+              build_path: . # optional
+              run_if_conditions: passed # optional
+            - task: mvn -P joku install toka
+              build_path: . # optional
+              run_if_conditions: passed # optional
+    - stage: Docker_build # unique name, no spaces
+      jobs:
+        - job: Dokcer_build_eka # unique name, no spaces
+          tasks: # ordered list of tasks to execute in job Docker_build_eka
+            - task: docker build eka....
+              build_path: . # optional
+              run_if_conditions: passed # optional
+            - task: docker tag...
+              build_path: . # optional
+              run_if_conditions: passed # optional
+        - job: Docker_build_toka # unique name, no spaces
+          tasks: # ordered list of tasks to execute in job Docker_build_toke
+            - task: docker build toka....
+              build_path: . # optional
+              run_if_conditions: passed # optional
+            - task: docker tag...
+
+integration_testing:
+  compose_file_path: /src/test/resources
+  compose_file_name: docker-compose.yml
+  
+  service_virtualization:
+    mari_file_path: src/test/resources/service-virtualization/VirtualServices
+    mari_file_names:
+      - catalog.mari
+  
+  tests:
+    go_cd_agent_props:
+      - java:8
+      - maven
+    test_services:
+      owasp_zap: false
+      selenium_grid: true
+      service_virtualization: true
+      robot_framework: true
+      cucumber: false
+    stages: # list of stages in order
+      - stage: IntegrationTest # unique name, no spaces
+        jobs:
+          - job: RobotJob # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Maven build
+              - task: mvn -P Robot -D service_url=http://catalog:8080 install
+                build_path: . # optional
+                run_if_conditions: passed # optional
+      - stage: Docker # unique name, no spaces
+        jobs:
+          - job: Docker_build_job # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Docker_build_eka
+              - task: docker build eka....
+              - task: docker tag...
+                build_path: . # optional
+                run_if_conditions: passed # optional
+          - job: Docker_build_toka_job # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Docker_build_toke
+              - task: docker build toka....
+              - task: docker tag...
+  
+  selenium:
+    version: "2.53.0"
+    browsers:
+    - name: chrome
+      amount: 1
+      version: "latest"
+    - name: firefox
+      amount: 1
+      version: "latest"
+
+
+acceptance_testing:
+  compose_file_path: src/test/resources
+  compose_file_name: docker-compose.yml
+  
+  service_virtualization:
+    mari_file_path: src/test/resources/service-virtualization/VirtualServices
+    mari_file_names:
+      - catalog.mari
+  
+  tests:
+    go_cd_agent_props:
+      - java:8
+      - maven
+    test_services:
+      owasp_zap: true
+      selenium_grid: false
+      service_virtualization: true
+      robot_framework: true
+      cucumber: false
+    stages: # list of stages in order
+      - stage: AcceptanceTest # unique name, no spaces
+        jobs:
+          - job: ChromeJob # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Maven build
+              - task: mvn clean -Probot,zap -Drobot.http_proxy_port=8000 -Drobot.http_proxy_host=zap -Drobot.browser=chrome -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.order.url=http://zuul:8080/order/ -Drobot.main.url=http://zuul:8080 -Drobot.catalog_rest_url=http://catalog:8080 -Drobot.customer_rest_url=http://customer:8080 clean install
+                build_path: . # optional
+                run_if_conditions: passed # optional
+      - stage: Docker # unique name, no spaces
+        jobs:
+          - job: Docker_build_job # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Docker_build_eka
+              - task: docker build eka....
+              - task: docker tag...
+                build_path: . # optional
+                run_if_conditions: passed # optional
+          - job: Docker_build_toka_job # unique name, no spaces
+            tasks: # ordered list of tasks to execute in job Docker_build_toke
+              - task: docker build toka....
+                build_path: . # optional
+                run_if_conditions: passed # optional
+              - task: docker tag...
+  
+  selenium:
+    version: "2.53.0"
+    browsers:
+    - name: chrome
+      amount: 1
+      version: "latest"
+    - name: firefox
+      amount: 1
+      version: "latest"
+
+  cron_timer: 0 0 22 ? * MON-FRI
+
+
+production:
+  go_cd_agent_props:
+    - ansible
+  trigger_mode: manual
+  type: parallel
+  stages: # list of stages in order
+    - stage: Compile # unique name, no spaces
+      jobs:
+        - job: AnsibleJob # unique name, no spaces
+          tasks: # ordered list of tasks to execute in job Maven build
+            - task: ansible-playbook -i ansible-scripts/inventory ansible-scripts/microservice-playbook.yml
+              build_path: . # optional
+              run_if_conditions: passed # optional
+
+
+post_stage:
+  go_cd_agent_props:
+    - java:8
+    - maven
+  custom_cmd:
+    - docker login <docker registry> <username> $DOCKERPASSWORD
+    - docker tag <local image name>:<tag> <registry image name>:<tag>
+    - docker push <registry image name>:<tag>
