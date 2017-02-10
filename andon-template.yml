@@ -92,11 +92,8 @@ integration_testing:
     browsers:
     - name: chrome
       amount: 1
-      version: "latest"
     - name: firefox
       amount: 1
-      version: "latest"
-
 
 acceptance_testing:
   compose_file_path: src/test/resources
