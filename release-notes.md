@@ -71,10 +71,10 @@ Fixes can be implemented only to the newest version.
 
 * OWASP ZAP integration to RF test cases
 * Environment variable support from Andon UI
-..* SonarQube authentication
+    * SonarQube authentication
 * GOCD server version 16.9.0
-..* ln -s /var/lib/go-server/go-server.log /var/log/go-server/go-server.log
-..* Log file has changed location
+    * ln -s /var/lib/go-server/go-server.log /var/log/go-server/go-server.log
+    * Log file has changed location
 * GOCD agents updated to 16.9.0 version
 * Pipeline material uses whitelist if working directory is defined
 * UI changed to use tabs: Andon home, Docker login and Settings
@@ -93,11 +93,11 @@ Fixes can be implemented only to the newest version.
 ## Version 0.4.1:
 
 * New andon.yml feature:
-..* Docker Image name and tag support
-..* Pipeline name addition
-..* SV recording MAR file updated
-..* Support for non maven build in build command
-..* Go CD agent properties support added for missing phases
+    * Docker Image name and tag support
+    * Pipeline name addition
+    * SV recording MAR file updated
+    * Support for non maven build in build command
+    * Go CD agent properties support added for missing phases
 * Bug fixes
 * Docker 1.11.2 and Docker Compose 1.8.0 is mandatory
 * Surefire artifact added only when maven command is used
@@ -114,7 +114,7 @@ Fixes can be implemented only to the newest version.
 * Support for DevOps Space deployment
 * SVN support added
 * New demo application: https://github.com/Kalle80/microservice. 
-..* Forked from https://github.com/ewolff/microservice
+    * Forked from https://github.com/ewolff/microservice
 * Java 8 support for GoCD Agents 
 * GoCD Server and Agent upgraded to 16.6
 * Andon UI changes
