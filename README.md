@@ -1,6 +1,6 @@
 # Andon
 
-Thank you for selecting Andon for your usage. Andon is a boiler plate for continuous delivery.
+Thank you for selecting Andon for your usage. Andon is a boilerplate for continuous delivery.
 
 # Getting Started
 
