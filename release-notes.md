@@ -1,5 +1,5 @@
 # Andon Release Notes
-Fixes can be implemented only to the newest version.
+Fixes will be implemented only to the newest version.
 
 ## Version 0.4.5:
 
@@ -98,16 +98,15 @@ Fixes can be implemented only to the newest version.
     * SV recording MAR file updated
     * Support for non maven build in build command
     * Go CD agent properties support added for missing phases
-* Bug fixes
 * Docker 1.11.2 and Docker Compose 1.8.0 is mandatory
 * Surefire artifact added only when maven command is used
-* Bug fix: when project name is defined in andon.yml pom.xml was not correctly read
 * In andon.yml files GO agent properties can be defined in integration test, acceptance test and production phases
 * When Andon is checking are required GO agents running it checks the agent status. If status is missing (server has no connection to agent) agents with required resources are started again
 * Docker login in UI is done inside agent which is doing docker push
 * Production phase removed from acceptance test phase. Production is now own project
 * In andon.yml added post_stage phase with custom command list in compile and unit test, integration test, acceptance test and production phases. If commands are defined post_stage stage is added into pipeline
 * When docker login is done user data is stored into an encrypted file is user data is not yet there. When pipeline configuration is run users are red from encrypted file and for every user docker login is executed in agent containers.
+* Bug fix: when project name is defined in andon.yml pom.xml was not correctly read
 
 ## Version 0.4.0:
 
@@ -128,4 +127,4 @@ Fixes can be implemented only to the newest version.
 * andon.yml reformatting
 * GoCD 12 support
 * Andon UI for project import
-* Old demo application: https://github.com/Kalle80/bookapp (no support from 0.4.0 onwards)
+* Old demo application: https://github.com/Kalle80/bookapp (not supported from 0.4.0 onwards)
