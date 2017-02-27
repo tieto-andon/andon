@@ -12,7 +12,7 @@ Quality is close to our heart, in case you found something suspicious, feel free
 
 # Release notes
 
-[Release notes] (https://github.com/tieto-andon/andon/blob/master/release-notes "Open Andon Release notes")
+[Release notes] (https://github.com/tieto-andon/andon/blob/master/release-notes.md "Open Andon Release notes")
 
 # Community channel
 
