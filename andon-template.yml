@@ -61,8 +61,6 @@ integration_testing:
       - java:8
       - maven
     test_services:
-      owasp_zap: false
-      selenium_grid: true
       service_virtualization: true
       robot_framework: true
       cucumber: false
@@ -70,6 +68,9 @@ integration_testing:
       - stage: IntegrationTest # unique name, no spaces
         jobs:
           - job: RobotJob # unique name, no spaces
+            selenium_grid: true
+            browser_stack: true
+            owasp_zap: false
             tasks: # ordered list of tasks to execute in job Maven build
               - task: mvn -P Robot -D service_url=http://catalog:8080 install
                 build_path: . # optional
@@ -77,12 +78,18 @@ integration_testing:
       - stage: Docker # unique name, no spaces
         jobs:
           - job: Docker_build_job # unique name, no spaces
+            selenium_grid: true
+            browser_stack: false
+            owasp_zap: false
             tasks: # ordered list of tasks to execute in job Docker_build_eka
               - task: docker build eka....
               - task: docker tag...
                 build_path: . # optional
                 run_if_conditions: passed # optional
           - job: Docker_build_toka_job # unique name, no spaces
+            selenium_grid: false
+            browser_stack: true
+            owasp_zap: false
             tasks: # ordered list of tasks to execute in job Docker_build_toke
               - task: docker build toka....
               - task: docker tag...
@@ -94,6 +101,7 @@ integration_testing:
       amount: 1
     - name: firefox
       amount: 1
+
 
 acceptance_testing:
   compose_file_path: src/test/resources
@@ -109,8 +117,6 @@ acceptance_testing:
       - java:8
       - maven
     test_services:
-      owasp_zap: true
-      selenium_grid: false
       service_virtualization: true
       robot_framework: true
       cucumber: false
@@ -118,6 +124,9 @@ acceptance_testing:
       - stage: AcceptanceTest # unique name, no spaces
         jobs:
           - job: ChromeJob # unique name, no spaces
+            selenium_grid: true
+            browser_stack: true
+            owasp_zap: true
             tasks: # ordered list of tasks to execute in job Maven build
               - task: mvn clean -Probot,zap -Drobot.http_proxy_port=8000 -Drobot.http_proxy_host=zap -Drobot.browser=chrome -Drobot.remote_url=http://hub:4444/wd/hub -Drobot.order.url=http://zuul:8080/order/ -Drobot.main.url=http://zuul:8080 -Drobot.catalog_rest_url=http://catalog:8080 -Drobot.customer_rest_url=http://customer:8080 clean install
                 build_path: . # optional
@@ -125,12 +134,18 @@ acceptance_testing:
       - stage: Docker # unique name, no spaces
         jobs:
           - job: Docker_build_job # unique name, no spaces
+            selenium_grid: true
+            browser_stack: false
+            owasp_zap: true
             tasks: # ordered list of tasks to execute in job Docker_build_eka
               - task: docker build eka....
               - task: docker tag...
                 build_path: . # optional
                 run_if_conditions: passed # optional
           - job: Docker_build_toka_job # unique name, no spaces
+            selenium_grid: false
+            browser_stack: true
+            owasp_zap: false
             tasks: # ordered list of tasks to execute in job Docker_build_toke
               - task: docker build toka....
                 build_path: . # optional
@@ -142,10 +157,8 @@ acceptance_testing:
     browsers:
     - name: chrome
       amount: 1
-      version: "latest"
     - name: firefox
       amount: 1
-      version: "latest"
 
   cron_timer: 0 0 22 ? * MON-FRI
 
@@ -154,7 +167,6 @@ production:
   go_cd_agent_props:
     - ansible
   trigger_mode: manual
-  type: parallel
   stages: # list of stages in order
     - stage: Compile # unique name, no spaces
       jobs:
