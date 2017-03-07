@@ -1,6 +1,13 @@
 # Andon Release Notes
 Fixes will be implemented only to the newest version.
 
+## Version 0.4.6:
+
+* Version 0.4.6:
+* GOCD server and agents version 17.1.0
+* 17.1.0 only Java 8 is supported
+* Browser Stack support added
+
 ## Version 0.4.5:
 
 * GOCD server and agents version 16.12.0
@@ -9,8 +16,10 @@ Fixes will be implemented only to the newest version.
 * Shell script for building agents created
 * The commands phase in andon.yml changed to stages phase, type removed. In compile, integration test and acceptance test same stages phase used.
 * Docker 1.13.0 and Docker Compose 1.10.0 is mandatory
+* Andon Engine Update added into Help menu
 * Bug fix: in integration and acceptance test phases only the latest task was taken into account, now all tasks are taken into account.
 * Bug fix: build_path and run_if_conditions were on wrong level, moved from job to task.
+* Bug fix: checking default agent was working only when pipeline was imported. Now it is checked every 10 minutes.
 
 ## Version 0.4.4.1:
 
