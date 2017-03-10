@@ -1,11 +1,10 @@
 # Andon
 
-Thank you for selecting Andon for your usage. Andon is a boilerplate for continuous delivery.
+Thank you for selecting Andon for your usage. Andon is a [boilerplate] (https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
 
 # Getting Started
 
-[Andon user guide] (https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide") <br>
-[Andon Boilerplate] (https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate")
+[Andon user guide] (https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide")
 
 # Incidents
 
