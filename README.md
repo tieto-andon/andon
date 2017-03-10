@@ -4,7 +4,7 @@ Thank you for selecting Andon for your usage. Andon is a boilerplate for continu
 
 # Getting Started
 
-[Andon user guide] (https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide")
+[Andon user guide] (https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide") <br>
 [Andon Boilerplate] (https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate")
 
 # Incidents
