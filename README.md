@@ -1,10 +1,10 @@
 # Andon
 
-Thank you for selecting Andon for your usage. Andon is a [boilerplate] (https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
+Thank you for selecting Andon for your usage. Andon is a [boilerplate](https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
 
 # Getting Started
 
-[Andon user guide] (https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide")
+[Andon user guide](https://github.com/tieto-andon/andon/wiki/Andon-User-Guide "Open Andon user guide")
 
 # Incidents
 
@@ -12,8 +12,8 @@ Quality is close to our heart, in case you found something suspicious, feel free
 
 # Release notes
 
-[Release notes] (https://github.com/tieto-andon/andon/blob/master/release-notes.md "Open Andon Release notes")
+[Release notes](https://github.com/tieto-andon/andon/blob/master/release-notes.md "Open Andon Release notes")
 
 # Community channel
 
-Fastest way to get some help in case you can not found it from user guide is to join to the Andon-CD slack channel. [Invitation for Andon-CD slack channel] (https://andon-cd.slack.com/shared_invite/MTM5MzI3NDI2NTAzLTE0ODY1NTg4ODAtYTM3NDJjZDY0Nw "Invitation to Andon-CD slack channel")
+Fastest way to get some help in case you can not found it from user guide is to join to the Andon-CD slack channel. [Invitation for Andon-CD slack channel](https://andon-cd.slack.com/shared_invite/MTM5MzI3NDI2NTAzLTE0ODY1NTg4ODAtYTM3NDJjZDY0Nw "Invitation to Andon-CD slack channel")
