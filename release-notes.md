@@ -1,3 +1,5 @@
+![Andon Logo](https://github.com/tieto-andon/andon/blob/master/pics/Andon_logo.PNG)
+
 # Andon Release Notes
 Fixes will be implemented only to the newest version.
 
