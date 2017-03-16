@@ -1,4 +1,4 @@
-# Andon
+# ![Andon logo](https://github.com/tieto-andon/andon/blob/master/pics/Andon_logo.PNG)
 
 Thank you for selecting Andon for your usage. Andon is a [boilerplate](https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
 
