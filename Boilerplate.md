@@ -1,6 +1,6 @@
 ![Andon Logo](https://github.com/tieto-andon/andon/blob/master/pics/Andon_logo.PNG)
 # Continuous Delivery boilerplate called Andon
-### Solution paper about makeing Container Driven Continuous Delivery/Deployment (CD) easy as Code
+### Solution paper about making Container Driven Continuous Delivery/Deployment (CD) easy as Code
 
 ## Problem
 
