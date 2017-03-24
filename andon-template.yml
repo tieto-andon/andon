@@ -23,6 +23,13 @@ compile:
     - stage: Compile # unique name, no spaces
       jobs:
         - job: Maven_build # unique name, no spaces
+          artifacts: # optional
+            test:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
+            build:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
           tasks: # ordered list of tasks to execute in job Maven build
             - task: mvn clean -Djava.security.egd=file:/dev/./urandom install
               build_path: . # optional
@@ -33,6 +40,13 @@ compile:
     - stage: Docker_build # unique name, no spaces
       jobs:
         - job: Dokcer_build_eka # unique name, no spaces
+          artifacts: # optional
+            test:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
+            build:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
           tasks: # ordered list of tasks to execute in job Docker_build_eka
             - task: docker build eka....
               build_path: . # optional
@@ -41,6 +55,13 @@ compile:
               build_path: . # optional
               run_if_conditions: passed # optional
         - job: Docker_build_toka # unique name, no spaces
+          artifacts: # optional
+            test:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
+            build:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
           tasks: # ordered list of tasks to execute in job Docker_build_toke
             - task: docker build toka....
               build_path: . # optional
@@ -69,6 +90,13 @@ testing:
       - stage: AcceptanceTest # unique name, no spaces
         jobs:
           - job: ChromeJob # unique name, no spaces
+            artifacts: # optional
+              test:
+                source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+                destination: # destination directory relative to artifacts folder
+              build:
+                source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+                destination: # destination directory relative to artifacts folder
             selenium_grid: true
             browser_stack: true
             owasp_zap: true
@@ -79,6 +107,13 @@ testing:
       - stage: Docker # unique name, no spaces
         jobs:
           - job: Docker_build_job # unique name, no spaces
+            artifacts: # optional
+              test:
+                source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+                destination: # destination directory relative to artifacts folder
+              build:
+                source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+                destination: # destination directory relative to artifacts folder
             selenium_grid: true
             browser_stack: false
             owasp_zap: true
@@ -116,6 +151,13 @@ production:
     - stage: Compile # unique name, no spaces
       jobs:
         - job: AnsibleJob # unique name, no spaces
+          artifacts: # optional
+            test:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
+            build:
+              source: # a file or folder to publish to server (** means any path, * means any file or folder name)
+              destination: # destination directory relative to artifacts folder
           tasks: # ordered list of tasks to execute in job Maven build
             - task: ansible-playbook -i ansible-scripts/inventory ansible-scripts/microservice-playbook.yml
               build_path: . # optional
