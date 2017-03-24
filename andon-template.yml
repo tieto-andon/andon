@@ -47,65 +47,10 @@ compile:
               run_if_conditions: passed # optional
             - task: docker tag...
 
-integration_testing:
-  compose_file_path: /src/test/resources
-  compose_file_name: docker-compose.yml
-  
-  service_virtualization:
-    mari_file_path: src/test/resources/service-virtualization/VirtualServices
-    mari_file_names:
-      - catalog.mari
-  
-  tests:
-    go_cd_agent_props:
-      - java:8
-      - maven
-    test_services:
-      service_virtualization: true
-      robot_framework: true
-      cucumber: false
-    stages: # list of stages in order
-      - stage: IntegrationTest # unique name, no spaces
-        jobs:
-          - job: RobotJob # unique name, no spaces
-            selenium_grid: true
-            browser_stack: true
-            owasp_zap: false
-            tasks: # ordered list of tasks to execute in job Maven build
-              - task: mvn -P Robot -D service_url=http://catalog:8080 install
-                build_path: . # optional
-                run_if_conditions: passed # optional
-      - stage: Docker # unique name, no spaces
-        jobs:
-          - job: Docker_build_job # unique name, no spaces
-            selenium_grid: true
-            browser_stack: false
-            owasp_zap: false
-            tasks: # ordered list of tasks to execute in job Docker_build_eka
-              - task: docker build eka....
-              - task: docker tag...
-                build_path: . # optional
-                run_if_conditions: passed # optional
-          - job: Docker_build_toka_job # unique name, no spaces
-            selenium_grid: false
-            browser_stack: true
-            owasp_zap: false
-            tasks: # ordered list of tasks to execute in job Docker_build_toke
-              - task: docker build toka....
-              - task: docker tag...
-  
-  selenium:
-    version: "2.53.0"
-    browsers:
-    - name: chrome
-      amount: 1
-    - name: firefox
-      amount: 1
-
-
-acceptance_testing:
+testing:
   compose_file_path: src/test/resources
-  compose_file_name: docker-compose.yml
+  compose_file_names:
+    - docker-compose.yml
   
   service_virtualization:
     mari_file_path: src/test/resources/service-virtualization/VirtualServices
