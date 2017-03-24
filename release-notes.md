@@ -10,6 +10,7 @@ Fixes will be implemented only to the newest version.
 * Android Java 8 agent taken into use
 * In andon.yml intgration_testing and acceptance_testing compined to testing
 * In CentOS fixed problems when used sudo with maven command, sudo not used anymore. The sudo is used only with docker commands, take this into account also if docker commands used in andon.yml pre or post stage.
+* In andon.yml it is possible to define artifacts for a job
 
 ## Version 0.4.6:
 
