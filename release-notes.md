@@ -3,6 +3,14 @@
 # Andon Release Notes
 Fixes will be implemented only to the newest version.
 
+## Version 0.17.2:
+
+* GOCD server and agents version 17.2.0
+* In andon.yml copose_file_name changed to compose_file_names having a list of names
+* Android Java 8 agent taken into use
+* In andon.yml intgration_testing and acceptance_testing compined to testing
+* In CentOS fixed problems when used sudo with maven command, sudo not used anymore. The sudo is used only with docker commands, take this into account also if docker commands used in andon.yml pre or post stage.
+
 ## Version 0.4.6:
 
 * Version 0.4.6:
