@@ -1,6 +1,6 @@
 ![Andon logo](https://github.com/tieto-andon/andon/blob/master/pics/Andon_logo.PNG)
 
-Want an easy solution for continuous delivery? Andon is a [boilerplate](https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
+Are you looking for an easy solution for continuous delivery? Andon is a [boilerplate](https://github.com/tieto-andon/andon/blob/master/Boilerplate.md "Open Andon Boilerplate") for continuous delivery.
 
 # Getting Started
 
