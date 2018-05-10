@@ -3,6 +3,28 @@
 # Andon Release Notes
 Fixes will be implemented only to the newest version.
 
+## Version v18.3.1:
+* GOCD server and agents version v18.3.0
+* Docker login added in andon yml under deploy_ev
+
+## Version v18.3.0:
+* GOCD server and agents version v18.3.0
+
+## Version v18.2.0:
+* GOCD server and agents version v18.2.0
+
+## Version v18.1.0:
+* GOCD server and agents version v18.1.0
+
+## Version v17.12.0:
+* GOCD server and agents version v17.12.0
+
+## Version v17.11.0:
+* GOCD server and agents version v17.11.0
+
+## Version v17.10.0:
+* GOCD server and agents version v17.10.0
+
 ## Version 0.17.2:
 
 * GOCD server and agents version 17.2.0
