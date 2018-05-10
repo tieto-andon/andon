@@ -5,7 +5,7 @@ Fixes will be implemented only to the newest version.
 
 ## Version v18.3.1:
 * GOCD server and agents version v18.3.0
-* Docker login added in andon yml under deploy_ev
+* Docker login added in andon yml under deploy_env
 
 ## Version v18.3.0:
 * GOCD server and agents version v18.3.0
